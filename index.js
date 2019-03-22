@@ -26,7 +26,7 @@ module.exports = {
     this.app = this._findHost();
 
     if (this._shouldIncludeFiles()) {
-      if (!this.app.vendorFiles['jquery.js']) {
+      if (!this.project.findAddonByName('@ember/jquery') && !this.app.vendorFiles['jquery.js']) {
         this.import('vendor/ecpo-jquery/dist/jquery.js');
         this.import('vendor/shims/ecpo-jquery.js');
       } else {
